@@ -13,8 +13,8 @@
 PrintWriter output;
 float voltage;
 float temperatur;
-
-
+float time;
+float start_time;
  
   Serial myPort;        // The serial port
   int xPos = 1;         // horizontal position of the graph
@@ -38,6 +38,7 @@ float temperatur;
     // set initial background:
     background(0);
     output = createWriter("opsamlede_data.txt"); 
+   start_time=System.currentTimeMillis();
 
   }
 
@@ -46,6 +47,7 @@ float temperatur;
     stroke(127, 34, 255);
     line(xPos, height, xPos, height - inByte);
 output.println(temperatur);
+//output.println(time-start_time);
     // at the edge of the screen, go back to the beginning:
     if (xPos >= width) {
       xPos = 0;
@@ -70,6 +72,8 @@ output.println(temperatur);
      println(temperatur);
      println(voltage);
       println(inByte);
+      time = System.currentTimeMillis();
+      
     }
   }
   
