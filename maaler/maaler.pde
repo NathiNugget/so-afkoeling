@@ -79,7 +79,7 @@ float start_time;
       output.println("tid"+" "+str(time)+" "+"temperatur"+" "+str(temperatur));
 //      output.println(temperatur);
 //output.println(time);
-      delay(1000);
+      delay(15000);
     }
   }
   

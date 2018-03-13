@@ -1,1 +1,1 @@
-tid 1751.0 temperatur 29810.984
+tid 1756.0 temperatur 30302.684
