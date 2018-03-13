@@ -73,12 +73,13 @@ output.println(temperatur);
      println(voltage);
       println(inByte);
       time = System.currentTimeMillis();
-      
+      output.flush();
+      delay(1000);
     }
   }
   
   void keyPressed() {
-  output.flush(); // Writes the remaining data to the file
+   // Writes the remaining data to the file
   output.close(); // Finishes the file
   exit(); // Stops the program
 }
