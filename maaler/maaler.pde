@@ -15,6 +15,7 @@ float voltage;
 float temperatur;
 float time;
 float start_time;
+//float to_print;
  
   Serial myPort;        // The serial port
   int xPos = 1;         // horizontal position of the graph
@@ -46,8 +47,6 @@ float start_time;
     // draw the line:
     stroke(127, 34, 255);
     line(xPos, height, xPos, height - inByte);
-output.println(temperatur);
-//output.println(time-start_time);
     // at the edge of the screen, go back to the beginning:
     if (xPos >= width) {
       xPos = 0;
@@ -69,11 +68,17 @@ output.println(temperatur);
       inByte = float(inString);
       voltage=(inByte/1024.0)*5.0;
      temperatur=((voltage*100)-273); 
+       time = millis();
+       println(time);
      println(temperatur);
      println(voltage);
       println(inByte);
-      time = System.currentTimeMillis();
       output.flush();
+      str(time);
+      str(temperatur);
+      output.println("tid"+" "+str(time)+" "+"temperatur"+" "+str(temperatur));
+//      output.println(temperatur);
+//output.println(time);
       delay(1000);
     }
   }
