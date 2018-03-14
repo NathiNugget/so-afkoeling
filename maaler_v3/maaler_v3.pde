@@ -11,12 +11,11 @@
 
   import processing.serial.*;
 PrintWriter output;
+PrintWriter output2;
 float voltage;
 float temperatur;
 float time;
-float start_time;
-//float to_print;
- 
+
   Serial myPort;        // The serial port
   int xPos = 1;         // horizontal position of the graph
   float inByte = 0;
@@ -38,9 +37,8 @@ float start_time;
 
     // set initial background:
     background(0);
-    output = createWriter("opsamlede_data.txt"); 
-   start_time=System.currentTimeMillis();
-
+    output = createWriter("opsamlede_data_temp.txt");
+    output2=createWriter("opsamlede_data_tid.txt");
   }
 
   void draw () {
@@ -67,22 +65,21 @@ float start_time;
       // convert to an int and map to the screen height:
       inByte = float(inString);
       voltage=(inByte/1024.0)*5.0;
-     temperatur=((voltage*100)-273); 
+     temperatur=((voltage*100)-273);
        time = millis();
        println(time);
      println(temperatur);
      println(voltage);
       println(inByte);
       output.flush();
-      output.println("tid"+" "+str(time)+" "+"temperatur"+" "+str(temperatur));
-//      output.println(temperatur);
-//output.println(time);
-      delay(10000);
+      output2.flush();
+      output.println("temperatur"+" "+str(temperatur));
+      output2.println("tid"+" "+str(time));
+      //delay(10000);
     }
   }
   
   void keyPressed() {
-   // Writes the remaining data to the file
   output.close(); // Finishes the file
   exit(); // Stops the program
 }

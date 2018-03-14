@@ -8,7 +8,7 @@ void loop() {
   Serial.println(analogRead(A0));
   // wait a bit for the analog-to-digital converter to stabilize after the last
   // reading:
-  delay(1000);
+  delay(5000);
 }
 
 
