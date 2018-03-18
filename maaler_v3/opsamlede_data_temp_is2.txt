@@ -1,5 +1,3 @@
-temperatur 30322.215
-temperatur 59.51953
 temperatur 60.984375
 temperatur 61.960938
 temperatur 59.03125
