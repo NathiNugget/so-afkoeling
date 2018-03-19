@@ -1,15 +1,4 @@
-  // Graphing sketch
-
-  // This program takes ASCII-encoded strings from the serial port at 9600 baud
-  // and graphs them. It expects values in the range 0 to 1023, followed by a
-  // newline, or newline and carriage return
-
-  // created 20 Apr 2005
-  // updated 24 Nov 2015
-  // by Tom Igoe
-  // This example code is in the public domain.
-
-  import processing.serial.*;
+import processing.serial.*;
 PrintWriter output;
 PrintWriter output2;
 float voltage;
@@ -24,12 +13,8 @@ float time;
     // set the window size:
     size(800, 900);
     // List all the available serial ports
-    // if using Processing 2.1 or later, use Serial.printArray()
     println(Serial.list());
 
-    // I know that the first port in the serial list on my Mac is always my
-    // Arduino, so I open Serial.list()[0].
-    // Open whatever port is the one you're using.
     myPort = new Serial(this, Serial.list()[0], 9600);
 
     // don't generate a serialEvent() unless you get a newline character:
@@ -75,7 +60,6 @@ float time;
       output2.flush();
       output.println("temperatur"+" "+str(temperatur));
       output2.println("tid"+" "+str(time));
-      //delay(10000);
     }
   }
   
